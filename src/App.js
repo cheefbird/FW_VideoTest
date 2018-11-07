@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-import VideoCard from "./Components/VideoCard";
+import VideoListScreen from "./Screens/VideoListScreen";
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <VideoCard />
+        <VideoListScreen />
       </View>
     );
   }
@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#000"
+    backgroundColor: "#000",
+    marginTop: 50
   },
   welcome: {
     fontSize: 20,
