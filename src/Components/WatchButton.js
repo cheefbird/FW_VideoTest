@@ -3,12 +3,13 @@ import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 
 export default class WatchButton extends Component {
   render() {
+    const { onPress } = this.props;
     return (
       <TouchableHighlight
         style={styles.container}
         activeOpacity={1}
         underlayColor="green"
-        onPress={() => console.log("Button Pressed")}
+        onPress={onPress}
       >
         <Text style={styles.text}>Watch Video</Text>
       </TouchableHighlight>

@@ -8,7 +8,11 @@ import { playlist } from "../Fixtures/videos";
 export default class VideoListScreen extends Component {
   _keyExtractor = (item, index) => index.toString();
 
-  renderCard = ({ item }) => <VideoCard />;
+  renderCard = ({ item }) => (
+    <VideoCard videoUrl={item.videoUrl} onPressButton={this.onPressButton} />
+  );
+
+  onPressButton = url => console.log(url);
 
   render() {
     return (

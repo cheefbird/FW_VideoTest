@@ -9,6 +9,6 @@ export const playlist = [
   },
   {
     service: "vimeo",
-    videoUrl: "https://player.vimeo.com/video/295913617"
+    videoUrl: "https://player.vimeo.com/video/291202268"
   }
 ];

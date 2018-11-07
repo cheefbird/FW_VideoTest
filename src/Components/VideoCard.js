@@ -5,6 +5,11 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import WatchButton from "./WatchButton";
 
 export default class VideoCard extends Component {
+  onPress = () => {
+    const { videoUrl, onPressButton } = this.props;
+    onPressButton(videoUrl);
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -21,7 +26,7 @@ export default class VideoCard extends Component {
         </ImageBackground>
         <View style={styles.textContainer}>
           <Text style={styles.videoTitle}>Video Title Here</Text>
-          <WatchButton />
+          <WatchButton onPress={this.onPress} />
         </View>
       </View>
     );
