@@ -1,19 +1,27 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, ImageBackground, Button } from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
+import { StyleSheet, View, Text, ImageBackground } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
+
+import WatchButton from "./WatchButton";
 
 export default class VideoCard extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <ImageBackground
-          source={{ uri: "https://via.placeholder.com/414x233/0000FF/0000FF" }}
+          style={styles.thumbnail}
+          source={{ uri: "https://via.placeholder.com/368x207/0000FF/0000FF" }}
         >
-          <Icon name="arrow-dropright-circle" size={24} color="#d3d6dd" />
+          <Icon
+            name="play-circle"
+            size={75}
+            color="#d3d6dd"
+            style={{ alignItems: "center" }}
+          />
         </ImageBackground>
-        <View>
-          <Text>Video's Title Here</Text>
-          <Button>Watch Video</Button>
+        <View style={styles.textContainer}>
+          <Text style={styles.videoTitle}>Video Title Here</Text>
+          <WatchButton />
         </View>
       </View>
     );
@@ -21,9 +29,25 @@ export default class VideoCard extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    backgroundColor: "white",
+    borderRadius: 8,
+    marginVertical: 4,
+    marginHorizontal: 10,
+    padding: 8
+  },
   thumbnail: {
-    width: 414,
-    height: 233
+    width: 368,
+    height: 207,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  textContainer: {
+    alignItems: "stretch"
+  },
+  videoTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    paddingHorizontal: 5
   }
 });
