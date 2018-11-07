@@ -6,6 +6,9 @@ import VideoCard from "../Components/VideoCard";
 import { playlist } from "../Fixtures/videos";
 
 export default class VideoListScreen extends Component {
+  static navigationOptions = {
+    title: "Videos"
+  };
   _keyExtractor = (item, index) => index.toString();
 
   renderCard = ({ item }) => (
