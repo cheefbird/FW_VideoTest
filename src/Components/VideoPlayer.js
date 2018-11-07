@@ -3,8 +3,8 @@ import { StyleSheet, WebView } from "react-native";
 
 export default class VideoPlayer extends Component {
   render() {
-    const { video } = this.props;
+    const { videoUrl } = this.props;
 
-    return <WebView source={{ uri: video }} userWebKit={true} />;
+    return <WebView source={{ uri: video }} allowsInlineMediaPlayback={true} />;
   }
 }
