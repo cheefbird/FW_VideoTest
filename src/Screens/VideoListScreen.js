@@ -9,13 +9,18 @@ export default class VideoListScreen extends Component {
   static navigationOptions = {
     title: "Videos"
   };
+
   _keyExtractor = (item, index) => index.toString();
 
   renderCard = ({ item }) => (
     <VideoCard videoUrl={item.videoUrl} onPressButton={this.onPressButton} />
   );
 
-  onPressButton = url => console.log(url);
+  onPressButton = url => {
+    this.props.navigation.navigate("Player", {
+      videoUrl: url
+    });
+  };
 
   render() {
     return (

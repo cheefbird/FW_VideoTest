@@ -5,6 +5,8 @@ export default class VideoPlayer extends Component {
   render() {
     const { videoUrl } = this.props;
 
-    return <WebView source={{ uri: video }} allowsInlineMediaPlayback={true} />;
+    return (
+      <WebView source={{ uri: videoUrl }} allowsInlineMediaPlayback={true} />
+    );
   }
 }
