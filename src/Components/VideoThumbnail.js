@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {
   StyleSheet,
+  View,
   TouchableHighlight,
   ImageBackground,
   WebView
@@ -26,43 +27,54 @@ export default class VideoThumbnail extends Component {
     const { videoUrl } = this.props;
 
     return (
-      <TouchableHighlight
-        style={styles.contianer}
-        activeOpacity={1}
-        onPress={this.onThumbnailPressed}
-      >
-        {!videoIsActive ? (
-          <ImageBackground
-            style={styles.thumbnail}
-            source={{
-              uri: "https://via.placeholder.com/368x207/0000FF/0000FF"
-            }}
-          >
-            <Icon
-              name="play-circle"
-              size={75}
-              color="#d3d6dd"
-              style={{ alignItems: "center" }}
+      <View>
+        {videoIsActive ? (
+          <View>
+            <Icon.Button
+              backgroundColor="black"
+              name="times"
+              size={30}
+              color="red"
+              onPress={this.onThumbnailPressed}
+            >
+              Text
+            </Icon.Button>
+            <WebView
+              source={{ uri: videoUrl }}
+              style={styles.videoPlayer}
+              mediaPlaybackRequiresUserAction={false}
             />
-          </ImageBackground>
+          </View>
         ) : (
-          <WebView
-            source={{ uri: videoUrl }}
-            style={styles.videoPlayer}
-            mediaPlaybackRequiresUserAction={false}
-          />
+          <TouchableHighlight
+            style={styles.container}
+            activeOpacity={1}
+            onPress={this.onThumbnailPressed}
+          >
+            <ImageBackground
+              style={styles.thumbnail}
+              source={{
+                uri: "https://via.placeholder.com/368x207/0000FF/0000FF"
+              }}
+            >
+              <Icon
+                name="play-circle"
+                size={75}
+                color="#d3d6dd"
+                style={{ alignItems: "center" }}
+              />
+            </ImageBackground>
+          </TouchableHighlight>
         )}
-      </TouchableHighlight>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  contianer: {
+  container: {
     alignItems: "center",
-    backgroundColor: "red",
-    paddingHorizontal: 18,
-    paddingVertical: 8
+    backgroundColor: "red"
   },
   thumbnail: {
     width: 368,
