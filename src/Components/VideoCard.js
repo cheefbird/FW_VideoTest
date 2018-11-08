@@ -12,9 +12,11 @@ export default class VideoCard extends Component {
   };
 
   render() {
+    const { videoUrl } = this.props;
+
     return (
       <View style={styles.container}>
-        <VideoThumbnail />
+        <VideoThumbnail videoUrl={videoUrl} />
         <View style={styles.textContainer}>
           <Text style={styles.videoTitle}>Video Title Here</Text>
           <WatchButton onPress={this.onPress} />
