@@ -41,12 +41,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     padding: 8
   },
-  thumbnail: {
-    width: 368,
-    height: 207,
-    justifyContent: "center",
-    alignItems: "center"
-  },
   textContainer: {
     alignItems: "stretch"
   },
