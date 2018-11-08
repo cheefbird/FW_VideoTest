@@ -5,7 +5,11 @@ import Icon from "react-native-vector-icons/FontAwesome";
 export default class VideoThumbnail extends Component {
   render() {
     return (
-      <TouchableHighlight>
+      <TouchableHighlight
+        style={styles.contianer}
+        activeOpacity={1}
+        onPress={() => console.log("THUMBNAIL PRESSED")}
+      >
         <ImageBackground
           style={styles.thumbnail}
           source={{ uri: "https://via.placeholder.com/368x207/0000FF/0000FF" }}
@@ -23,6 +27,12 @@ export default class VideoThumbnail extends Component {
 }
 
 const styles = StyleSheet.create({
+  contianer: {
+    alignItems: "center",
+    backgroundColor: "red",
+    paddingHorizontal: 18,
+    paddingVertical: 8
+  },
   thumbnail: {
     width: 368,
     height: 207,
