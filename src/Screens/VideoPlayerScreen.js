@@ -3,6 +3,10 @@ import React, { Component } from "react";
 import VideoPlayer from "../Components/VideoPlayer";
 
 export default class VideoPlayerScreen extends Component {
+  static navigationOptions = {
+    title: "Player"
+  };
+
   render() {
     const { navigation } = this.props;
     const videoUrl = navigation.getParam(

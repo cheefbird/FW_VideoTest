@@ -1,13 +1,32 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, StatusBar, View } from "react-native";
+import { createStackNavigator } from "react-navigation";
 
-import VideoCard from "./Components/VideoCard";
+import VideoListScreen from "./Screens/VideoListScreen";
+import VideoPlayerScreen from "./Screens/VideoPlayerScreen";
+
+const Navigator = createStackNavigator(
+  {
+    List: VideoListScreen,
+    Player: VideoPlayerScreen
+  },
+  {
+    initialRouteName: "List",
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: "black"
+      },
+      headerTintColor: "orange"
+    }
+  }
+);
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <VideoCard />
+        <StatusBar barStyle="light-content" />
+        <Navigator />
       </View>
     );
   }
@@ -15,10 +34,7 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#000"
+    flex: 1
   },
   welcome: {
     fontSize: 20,
