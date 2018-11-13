@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, ImageBackground } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 import WatchButton from "./WatchButton";
+import VideoThumbnail from "./VideoThumbnail";
 
 export default class VideoCard extends Component {
   onPress = () => {
@@ -11,19 +12,11 @@ export default class VideoCard extends Component {
   };
 
   render() {
+    const { videoUrl } = this.props;
+
     return (
       <View style={styles.container}>
-        <ImageBackground
-          style={styles.thumbnail}
-          source={{ uri: "https://via.placeholder.com/368x207/0000FF/0000FF" }}
-        >
-          <Icon
-            name="play-circle"
-            size={75}
-            color="#d3d6dd"
-            style={{ alignItems: "center" }}
-          />
-        </ImageBackground>
+        <VideoThumbnail videoUrl={videoUrl} />
         <View style={styles.textContainer}>
           <Text style={styles.videoTitle}>Video Title Here</Text>
           <WatchButton onPress={this.onPress} />
@@ -40,12 +33,6 @@ const styles = StyleSheet.create({
     marginVertical: 4,
     marginHorizontal: 10,
     padding: 8
-  },
-  thumbnail: {
-    width: 368,
-    height: 207,
-    justifyContent: "center",
-    alignItems: "center"
   },
   textContainer: {
     alignItems: "stretch"
